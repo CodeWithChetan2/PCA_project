@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<link rel="stylesheet" href="{{url_for('static',path='css/app.css')}}">
+	
+	<title>Heart Diagonisis</title>
+</head>
+<body>
+<div class="img"></div>
+<form class="form" action="/is_heart_disease" method="POST">
+	<!-- "Age", "Sex", "ChestPainType", "RestingBP", "Cholesterol", "FastingBS", "RestingECG", "MaxHR", "ExerciseAngina", "Oldpeak", "ST_Slope"] -->
+	<h2 class="text-light">Age</h2>
+    <input class="area"  type="number" id="uiage" class="floatLabel" name="Age" value="">
+	<!-- <h2>Sex</h2>
+	<div class="switch-field">
+		<input type="radio" id="male" name="uisex" value="M"/>
+		<label for="male">M</label>
+		<input type="radio" id="radio-bhk-2" name="uisex" value="F" checked/>
+		<label for="radio-bhk-2">F</label>
+	</div> -->
+	<h2 class='text-light'>Sex</h2>
+	<div>
+  <select class="location" type="text" name="Sex" id="uisex">
+    <option value="" disabled="disabled" selected="selected">Gender</option>
+		<option type="text">M</option>
+        <option type="text">F</option>
+        
+  </select>
+</div>
+	<h2 class="text-light">RestingBP</h2>
+    <input class="area"  type="number" id="uirestingbp"  name="RestingBP" value="">
+	<h2 class="text-light">Cholesterol</h2>
+    <input class="area"  type="number" id="uicholesterol"  name="Cholesterol" value="">
+	<h2 class="text-light">FastingBS</h2>
+    <input class="area"  type="number" id="uifastingbs"  name="FastingBS" value="">
+	<h2 class="text-light">MaxHR</h2>
+    <input class="area"  type="number" id="text"  name="MaxHR" value="">
+	<h2 class="text-light">Oldpeak</h2>
+    <input class="area"  type="number" id="uioldpeak"  name="Oldpeak" value="">
+	<h2 class="text-light">ChestPainType</h2>
+	<div>
+  <select class="location" name="ChestPainType" id="uichestpaintype">
+    <option value="" disabled="disabled" selected="selected">Choose a ChestPainType</option>
+		<option>ATA</option>
+        <option>NAP</option>
+        <option>ASY</option>
+        <option>TA</option>
+
+  </select>
+</div>
+<h2 class="text-light">RestingECG</h2>
+	<div>
+  <select class="location" name="RestingECG" id="uirestingecg">
+    <option value="" disabled="disabled" selected="selected">RestingECG</option>
+		<option>LVH</option>
+        <option>Normal</option>
+        <option>ST</option>
+  </select>
+</div>
+<h2 class="text-light"></h2>
+<div>
+<select class="location" name="ExerciseAngina" id="uiexerciseangina">
+<option value="" disabled="disabled" selected="selected">ExerciseAngina</option>
+	<option>Y</option>
+	<option>N</option>
+</select>
+</div>
+<h2 class="text-light">ST_Slope</h2>
+	<div>
+  <select class="location" name="ST_Slope" id="uistslope">
+    <option value="" disabled="disabled" selected="selected">ST_Slope</option>
+		<option>Down</option>
+        <option>Flat</option>
+        <option>Up</soption>
+  </select>
+</div>
+	<button class="submit" >Submit</button>
+        {% if(result==0) %}
+		  <div id="uiheartdisease" class="result">	<h2 style="color:red" class="text-align-center">NO</h2> </div>
+        {% elif(result==1) %}
+		  <div id="uiheartdisease" class="result">	<h2 style="color:green" class="'text-align-center">YES</h2> </div>         
+        {% endif %}
+    
+</form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+</body>
+</html>
